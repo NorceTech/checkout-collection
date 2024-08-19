@@ -1,0 +1,20 @@
+meta {
+  name: Capture payment
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{klarnaAdapterUrl}}/api/order/v1/orders/{{orderId}}/payments/{{paymentId}}/capture
+  body: none
+  auth: bearer
+}
+
+headers {
+  x-merchant: {{merchant}}
+  x-channel: {{channel}}
+}
+
+auth:bearer {
+  token: {{token}}
+}

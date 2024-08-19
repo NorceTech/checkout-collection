@@ -1,0 +1,38 @@
+meta {
+  name: Update basket item
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{commerceShoppingServiceUrl}}/UpdateBasketItem?basketId={{basketId}}
+  body: json
+  auth: bearer
+}
+
+params:query {
+  basketId: {{basketId}}
+}
+
+headers {
+  Content-Type: application/json
+  applicationId: {{commerceApplicationId}}
+}
+
+auth:bearer {
+  token: {{commerce_token}}
+}
+
+body:json {
+  {
+    "LineNo": 1,
+    "PartNo": "100004",
+    "PriceListId": 3,
+    "Quantity": 2
+  }
+}
+
+assert {
+  res.status: eq 200
+  res('Id'): eq {{basketId}}
+}

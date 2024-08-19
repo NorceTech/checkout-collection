@@ -1,0 +1,24 @@
+meta {
+  name: Notifications
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{notificationUrl}}/api/v1/events?orderId={{orderId}}
+  body: none
+  auth: bearer
+}
+
+params:query {
+  orderId: {{orderId}}
+}
+
+headers {
+  x-merchant: {{merchant}}
+  x-channel: {{channel}}
+}
+
+auth:bearer {
+  token: {{token}}
+}

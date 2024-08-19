@@ -1,0 +1,46 @@
+meta {
+  name: Update buyer
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{apiServiceUrl}}/ShoppingService.svc/rest/UpdateBuyer?basketId={{basketId}}&updatedBy=1
+  body: json
+  auth: bearer
+}
+
+params:query {
+  basketId: {{basketId}}
+  updatedBy: 1
+}
+
+headers {
+  Content-Type: application/json
+  applicationId: {{applicationId}}
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+body:json {
+  {
+    "Email": "kalle@anka.se",
+    "FirstName": "Kalle",
+    "LastName": "Anka",
+    "CellPhone": "555-1234",
+    "InvoiceAddress": {
+      "Line1": "Ankeborgsgatan 27",
+      "Zip": "123 45",
+      "City": "Ankeborg",
+      "CountryId": 1
+    },
+    "UseInvoiceAddressAsDeliveryAddress": true
+  }
+}
+
+assert {
+  res.status: eq 200
+  res('Basket.Id'): eq {{basketId}}
+}

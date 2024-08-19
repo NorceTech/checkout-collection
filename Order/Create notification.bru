@@ -1,0 +1,29 @@
+meta {
+  name: Notification
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{orderUrl}}/api/v0/checkout/orders/{{orderId}}/notifications
+  body: json
+  auth: bearer
+}
+
+headers {
+  x-merchant: {{merchant}}
+  x-channel: {{channel}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "reference": "018f1459-c8e5-7aef-a4c5-cd7a60bc7c57",
+    "description": "Some notification",
+    "scope": "/reference",
+    "invoke": "https://httpstat.us/204"
+  }
+}

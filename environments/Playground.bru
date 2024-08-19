@@ -1,0 +1,22 @@
+vars {
+  orderUrl: https://{{slug}}.api-se.playground.norce.tech/checkout/order
+  configurationUrl: https://{{slug}}.api-se.playground.norce.tech/checkout/configuration
+  notificationUrl: https://{{slug}}.api-se.playground.norce.tech/checkout/notification
+  norceAdapterUrl: https://{{slug}}.api-se.playground.norce.tech/checkout/norce-adapter
+  klarnaAdapterUrl: https://{{slug}}.api-se.playground.norce.tech/checkout/klarna-adapter
+  merchant: your-merchant-here
+  channel: default-se
+  environment: playground
+  commerceShoppingServiceUrl: https://{{slug}}.api-se.playground.norce.tech/commerce/shopping/1.1
+  commerceIdentityServiceUrl: https://{{slug}}.api-se.playground.norce.tech/identity/1.0
+}
+vars:secret [
+  slug,
+  commerceIdentityClientSecret,
+  commerceIdentityClientId,
+  commerceClientId,
+  commerceApplicationId,
+  token,
+  klarnaPassword,
+  klarnaUsername
+]
