@@ -1,0 +1,20 @@
+meta {
+  name: Notification
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{notificationUrl}}/api/v1/events/{{eventId}}
+  body: none
+  auth: bearer
+}
+
+headers {
+  x-merchant: {{merchant}}
+  x-channel: {{channel}}
+}
+
+auth:bearer {
+  token: {{token}}
+}

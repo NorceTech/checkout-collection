@@ -22,3 +22,7 @@ headers {
 auth:bearer {
   token: {{token}}
 }
+
+vars:post-response {
+  eventId: res.body.data[0].id
+}

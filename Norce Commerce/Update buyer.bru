@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{apiServiceUrl}}/ShoppingService.svc/rest/UpdateBuyer?basketId={{basketId}}&updatedBy=1
+  url: {{commerceShoppingServiceUrl}}/UpdateBuyer?basketId={{basketId}}&updatedBy=1
   body: json
   auth: bearer
 }
@@ -17,11 +17,11 @@ params:query {
 
 headers {
   Content-Type: application/json
-  applicationId: {{applicationId}}
+  applicationId: {{commerceApplicationId}}
 }
 
 auth:bearer {
-  token: {{access_token}}
+  token: {{commerce_token}}
 }
 
 body:json {
