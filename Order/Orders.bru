@@ -1,0 +1,24 @@
+meta {
+  name: Orders
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{orderUrl}}/api/v0/checkout/orders?cart_reference={{basketId}}
+  body: none
+  auth: bearer
+}
+
+params:query {
+  cart_reference: {{basketId}}
+}
+
+headers {
+  x-merchant: {{merchant}}
+  x-channel: {{channel}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
