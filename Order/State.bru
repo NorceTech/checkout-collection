@@ -1,11 +1,11 @@
 meta {
-  name: Hook
+  name: State
   type: http
-  seq: 3
+  seq: 6
 }
 
-post {
-  url: {{orderUrl}}/api/v0/checkout/orders/{{orderId}}/hooks
+put {
+  url: {{orderUrl}}/api/v0/checkout/orders/{{orderId}}/state
   body: json
   auth: bearer
 }
@@ -21,7 +21,6 @@ auth:bearer {
 
 body:json {
   {
-    "subscribeTo": "/reference",
-    "invoke": "https://httpstat.us/204"
+    "currentStatus": "completed"
   }
 }

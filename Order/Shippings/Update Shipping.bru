@@ -1,0 +1,33 @@
+meta {
+  name: Update Shipping
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{orderUrl}}/api/v0/checkout/orders/{{orderId}}/shippings/ssAaCtbPTbQeNuciUJOLYVZGvCJ
+  body: json
+  auth: bearer
+}
+
+headers {
+  x-merchant: {{merchant}}
+  x-channel: {{channel}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "reference": "thing-shipping",
+    "name": "Thing to Home Delivery",
+    "state": "removed", 
+    "total": {
+      "includingVat": 7.5,
+      "excludingVat": 6
+    },
+    "vatRate": 0.25
+  }
+}

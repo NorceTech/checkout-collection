@@ -1,0 +1,29 @@
+meta {
+  name: Get basket
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{commerceShoppingServiceUrl}}/GetBasket?id={{basketId}}
+  body: none
+  auth: bearer
+}
+
+params:query {
+  id: {{basketId}}
+}
+
+headers {
+  Content-Type: application/json
+  applicationId: {{commerceApplicationId}}
+}
+
+auth:bearer {
+  token: {{commerce_token}}
+}
+
+assert {
+  res.status: eq 200
+  res('Id'): eq {{basketId}}
+}

@@ -1,7 +1,7 @@
 meta {
-  name: Notification (418)
+  name: Notification
   type: http
-  seq: 6
+  seq: 3
 }
 
 post {
@@ -22,8 +22,8 @@ auth:bearer {
 body:json {
   {
     "reference": "018f1459-c8e5-7aef-a4c5-cd7a60bc7c57",
-    "description": "Bad notification",
+    "description": "Some notification",
     "scope": "/reference",
-    "invoke": "https://httpstat.us/418"
+    "invoke": "https://httpstat.us/204"
   }
 }
