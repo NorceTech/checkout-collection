@@ -1,0 +1,53 @@
+meta {
+  name: Cart
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{orderUrl}}/api/v0/checkout/orders/{{orderId}}/cart
+  body: json
+  auth: bearer
+}
+
+headers {
+  x-merchant: {{merchant}}
+  x-channel: {{channel}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "items": [
+      {
+        "reference": "cart-item-reference-1",
+        "name": "Thing",
+        "quantity": 2,
+        "price": {
+          "includingVat": 12.5,
+          "excludingVat": 10
+        },
+        "total": {
+          "includingVat": 25,
+          "excludingVat": 20
+        },
+        "originalTotal": {
+          "includingVat": 25,
+          "excludingVat": 20
+        },
+        "vatRate": 0.25,
+        "attributes": {
+          "myDynamicNumber": 2,
+          "myDynamicString": "värde"
+        }
+      }
+    ],
+    "total": {
+      "includingVat": 25,
+      "excludingVat": 20
+    }
+  }
+}
