@@ -5,7 +5,7 @@ meta {
 }
 
 put {
-  url: {{orderUrl}}/api/v0/checkout/orders/{{orderId}}/customer/billing
+  url: {{orderUrl}}/api/v0/checkout/orders/{{orderId}}/customer/shipping
   body: json
   auth: bearer
 }
@@ -21,18 +21,14 @@ auth:bearer {
 
 body:json {
   {
-    "type": "Person",
-    "givenName": "Rosalinainho",
+    "givenName": "Henrikinho",
     "familyName": "Undulatsson",
-    "organizationName": "Storm",
-    "streetAddress": "Adaptivevägen 18",
+    "streetAddress": "Odengatanvägen 12",
     "streetAddress2": "Lgh 1203",
-    "postalCode": "95560",
-    "city": "Boden",
-    "region": "Norrbotten",
+    "postalCode": "915 20",
+    "city": "Skellefteå",
     "country": "SE",
-    "phone": "0753892233",
-    "email": "rosalinainho.undulatsson@example.com",
-    "nationalIdentificationNumber": "890201-3286"
+    "phone": "0701740612",
+    "email": "henrikinho.undulatsson@example.com"
   }
 }
