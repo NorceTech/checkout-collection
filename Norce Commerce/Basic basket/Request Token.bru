@@ -18,7 +18,7 @@ body:form-urlencoded {
 }
 
 vars:post-response {
-  commerce_token: res('access_token')
+  commerce_token: res.body.access_token
 }
 
 tests {
