@@ -1,11 +1,11 @@
 meta {
-  name: Retry Notification
+  name: Non-PSP Payment
   type: http
   seq: 4
 }
 
 post {
-  url: {{notificationUrl}}/api/v1/events/{{eventId}}/retry
+  url: {{nonpspAdapterUrl}}/api/checkout/v1/orders/{{orderId}}/payments
   body: none
   auth: bearer
 }
@@ -17,4 +17,8 @@ headers {
 
 auth:bearer {
   token: {{token}}
+}
+
+vars:post-response {
+  paymentId: res.body.paymentId
 }

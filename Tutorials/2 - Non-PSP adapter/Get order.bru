@@ -1,11 +1,11 @@
 meta {
-  name: Retry Notification
+  name: Order
   type: http
-  seq: 4
+  seq: 5
 }
 
-post {
-  url: {{notificationUrl}}/api/v1/events/{{eventId}}/retry
+get {
+  url: {{orderUrl}}/api/v0/checkout/orders/{{orderId}}
   body: none
   auth: bearer
 }
@@ -17,4 +17,8 @@ headers {
 
 auth:bearer {
   token: {{token}}
+}
+
+vars:post-response {
+  cartItemId: res.body.cart.items[0].id
 }

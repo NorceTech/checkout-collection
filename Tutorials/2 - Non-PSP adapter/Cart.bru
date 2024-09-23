@@ -1,0 +1,43 @@
+meta {
+  name: Cart
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{orderUrl}}/api/v0/checkout/orders/{{orderId}}/cart
+  body: json
+  auth: bearer
+}
+
+headers {
+  x-merchant: {{merchant}}
+  x-channel: {{channel}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "items": [
+      {
+        "id": "{{cartItemId}}",
+        "reference": "cart-item-no-2",
+        "sku": "S001",
+        "name": "Stuff",
+        "quantity": 2,
+        "total": {
+          "includingVat": 25,
+          "excludingVat": 20
+        },
+        "vatRate": 0.25
+      }
+    ],
+    "total": {
+      "includingVat": 25,
+      "excludingVat": 20
+    }
+  }
+}

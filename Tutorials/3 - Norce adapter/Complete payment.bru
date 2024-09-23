@@ -1,11 +1,11 @@
 meta {
-  name: Retry Notification
+  name: Complete Payment
   type: http
-  seq: 4
+  seq: 7
 }
 
 post {
-  url: {{notificationUrl}}/api/v1/events/{{eventId}}/retry
+  url: {{nonpspAdapterUrl}}/api/checkout/v1/orders/{{orderId}}/payments/{{paymentId}}/complete
   body: none
   auth: bearer
 }

@@ -1,0 +1,26 @@
+meta {
+  name: State
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{orderUrl}}/api/v0/checkout/orders/{{orderId}}/state
+  body: json
+  auth: bearer
+}
+
+headers {
+  x-merchant: {{merchant}}
+  x-channel: {{channel}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "currentStatus": "completed"
+  }
+}

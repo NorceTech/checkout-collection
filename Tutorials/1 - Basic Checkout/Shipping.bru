@@ -1,0 +1,32 @@
+meta {
+  name: Shipping
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{orderUrl}}/api/v0/checkout/orders/{{orderId}}/shippings
+  body: json
+  auth: bearer
+}
+
+headers {
+  x-merchant: {{merchant}}
+  x-channel: {{channel}}
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "reference": "thing-to-home-delivery",
+    "name": "Thing to Home Delivery",
+    "total": {
+      "includingVat": 7.5,
+      "excludingVat": 6
+    },
+    "vatRate": 0.25
+  }
+}

@@ -1,11 +1,11 @@
 meta {
-  name: Retry Notification
+  name: Order
   type: http
-  seq: 4
+  seq: 6
 }
 
-post {
-  url: {{notificationUrl}}/api/v1/events/{{eventId}}/retry
+put {
+  url: {{norceAdapterUrl}}/api/v1/orders/{{orderId}}
   body: none
   auth: bearer
 }
