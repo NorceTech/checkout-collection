@@ -33,7 +33,7 @@ body:json {
       "applicationId": {{commerceApplicationId}}
     },
     "api": {
-      "identityAddress": "https://identityservice.commerce.{{environment}}.internal.norce.tech/connect/token",
+      "identityAddress": "{{commerceIdentityServiceUrl}}",
       "identityClientId": "{{commerceIdentityClientId}}",
       "identityClientSecret": "{{commerceIdentityClientSecret}}",
       "identityScope": "lab"
