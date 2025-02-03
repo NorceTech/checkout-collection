@@ -26,7 +26,7 @@ body:json {
     "active": true,
     "adapter": {
       "internalUrl": "https://nonpsp-adapter.checkout.{{environment}}.internal.norce.tech",
-      "publicUrl": "https://nonpsp-adapter.checkout.{{environment}}.internal.norce.tech"
+      "publicUrl": "{{nonpspAdapterUrl}}"
     },
     "redirectUrls": {
       "checkoutUrl": "https://app.checkout.test.internal.norce.tech/newcheckout?orderId={orderId}&merchant={merchant}&channel={channel}",
