@@ -1,0 +1,39 @@
+meta {
+  name: Configuration
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{configurationUrl}}/api/v1/configuration/merchants/{{merchant}}/channels/{{channel}}/configurations/admin_meta
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "$schema": "{{adminUrl}}/api/schemas/v1/admin_meta_schema.json",
+    "id": "admin_meta",
+    "configs": [
+      {
+        "schema": "{{norceAdapterUrl}}/openapi/v1/schemas/norce_adapter.json",
+        "id": "norce_adapter",
+        "tags": [
+          "Platform"
+        ]
+      },
+      {
+        "schema": "{{adyenAdapterUrl}}/openapi/v1/schemas/adyen_dropin_adapter.json",
+        "id": "adyen_dropin_adapter",
+        "tags": [
+          "Payment"
+        ]
+      }
+    ],
+    "active": true
+  }
+}

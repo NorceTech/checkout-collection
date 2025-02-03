@@ -1,0 +1,15 @@
+meta {
+  name: Get Channels
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{configurationUrl}}/api/v1/configuration/merchants/{{merchant}}/channels
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
